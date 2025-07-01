@@ -1,69 +1,188 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll to top button functionality
+    const scrollTopBtn = document.getElementById('scroll-top');
+    
+    // Show/hide scroll to top button based on scroll position
+    const toggleScrollTopBtn = () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    };
+    
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
             behavior: 'smooth'
         });
     });
-});
-
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(26, 26, 26, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
-    } else {
-        navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// 3D Tilt Effect
-const tiltElements = document.querySelectorAll('.skill-item, .portfolio-item, .contact-item');
-
-tiltElements.forEach(element => {
-    element.addEventListener('mousemove', tiltEffect);
-    element.addEventListener('mouseleave', resetTilt);
-});
-
-function tiltEffect(event) {
-    const card = this;
-    const cardRect = card.getBoundingClientRect();
-    const centerX = cardRect.left + cardRect.width / 2;
-    const centerY = cardRect.top + cardRect.height / 2;
-    const mouseX = event.clientX - centerX;
-    const mouseY = event.clientY - centerY;
-    const rotateX = (mouseY / (cardRect.height / 2)) * -10;
-    const rotateY = (mouseX / (cardRect.width / 2)) * 10;
     
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-}
-
-function resetTilt(event) {
-    const card = this;
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-}
-
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0) rotate3d(0, 0, 0, 0deg)';
-        }
+    // Listen for scroll events to toggle button visibility
+    window.addEventListener('scroll', toggleScrollTopBtn);
+    toggleScrollTopBtn(); // Initial check
+    // Set theme to dark by default
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    
+    // Progress bar functionality
+    const progressBar = document.getElementById('progress-bar');
+    
+    const updateProgressBar = () => {
+        const scrollPosition = window.scrollY;
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = (scrollPosition / totalHeight) * 100;
+        progressBar.style.width = progress + '%';
+    };
+    
+    window.addEventListener('scroll', updateProgressBar);
+    updateProgressBar(); // Initial call
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-}, observerOptions);
-
-document.querySelectorAll('.skill-item, .portfolio-item, .contact-item').forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px) rotate3d(1, 0, 0, 45deg)';
-    item.style.transition = 'all 0.8s ease-out';
-    observer.observe(item);
+    
+    // Scroll animations for sections
+    const animateOnScroll = function() {
+        const sections = [
+            document.querySelector('.about-content'),
+            document.querySelector('.skills-container')
+        ];
+        
+        // Animate all education items
+        const educationItems = document.querySelectorAll('.education-item');
+        
+        const projectCards = document.querySelectorAll('.project-card');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const contactItems = document.querySelectorAll('.contact-item');
+        const socialLinks = document.querySelector('.social-links');
+        
+        // Function to check if element is in viewport
+        const isInViewport = function(element) {
+            if (!element) return false;
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        };
+        
+        // Animate sections when they come into view
+        sections.forEach(section => {
+            if (section && isInViewport(section)) {
+                section.classList.add('animate');
+            }
+        });
+        
+        // Animate education items with delay
+        educationItems.forEach((item, index) => {
+            if (isInViewport(item)) {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, index * 150);
+            }
+        });
+        
+        // Animate project cards with delay
+        projectCards.forEach((card, index) => {
+            if (isInViewport(card)) {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 100);
+            }
+        });
+        
+        // Animate timeline items with delay
+        timelineItems.forEach((item, index) => {
+            if (isInViewport(item)) {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, index * 200);
+            }
+        });
+        
+        // Animate contact items with delay
+        contactItems.forEach((item, index) => {
+            if (isInViewport(item)) {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, index * 150);
+            }
+        });
+        
+        // Animate social links
+        if (socialLinks && isInViewport(socialLinks)) {
+            socialLinks.classList.add('animate');
+        }
+    };
+    
+    // Run animation check on load and scroll
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('resize', animateOnScroll);
+    
+    // Initial check for animations
+    setTimeout(animateOnScroll, 100);
+    
+    // Add active class to navigation links based on scroll position
+    const updateActiveNavLink = function() {
+        const sections = document.querySelectorAll('section');
+        const scrollPosition = window.scrollY;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', updateActiveNavLink);
+    
+    // Add pulse animation to WhatsApp button
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    if (whatsappBtn) {
+        setInterval(() => {
+            whatsappBtn.classList.add('pulse');
+            setTimeout(() => {
+                whatsappBtn.classList.remove('pulse');
+            }, 1000);
+        }, 3000);
+    }
+    
+    // Add CSS for pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 1s ease-in-out;
+        }
+    `;
+    document.head.appendChild(style);
 });
