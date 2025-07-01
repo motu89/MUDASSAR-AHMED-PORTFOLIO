@@ -1,189 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mudassar Ahmed Saeed - Software Engineer</title>
+    <title>Engr. Mudassar Ahmed Saeed - Software Engineer</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">MAS</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Theme Toggle Button Removed -->
+    
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Global Background Elements -->
+    <div class="global-dots"></div>
+    <div class="global-glow"></div>
+    <div class="global-particles"></div>
+    <div class="global-circuit"></div>
+
 
     <!-- Hero Section -->
-    <section class="hero" id="about">
-        <div class="hero-content">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="./images/profile.jpg" alt="Mudassar Ahmed Saeed" />
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-img">
+                    <img src="images/profile.jpg" alt="Mudassar Ahmed Saeed">
                 </div>
                 <div class="hero-text">
-                    <h1>Mudassar Ahmed Saeed</h1>
-                    <h2>Software Engineer & Digital Marketing Specialist</h2>
-                    <p>A passionate software engineer with expertise in web development, digital marketing, and IT administration. Dedicated to leveraging technology to solve complex problems and deliver impactful solutions.</p>
+                    <h1>Engr. Mudassar Ahmed Saeed</h1>
+                    <h2>Software Engineer | MERN Stack Developer | Web Scraping Expert</h2>
+                    <p>Building powerful automation tools and scalable web apps using JavaScript and Python.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="cv/Engr. Mudassar Ahmed Saeed CV.pdf" class="btn" download>Download CV</a>
+                        <a href="#skills" class="btn">Skills</a>
+                        <a href="#experience" class="btn">Experience</a>
+                        <a href="#education" class="btn">Education</a>
+                        <a href="#contact" class="btn">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>As a dedicated software engineer with a strong foundation in both theoretical and practical aspects of computer science, I am passionate about leveraging technology to solve complex problems. I possess strong leadership and teamwork skills, evidenced by my successful collaboration on multiple projects. I am eager to take on new challenges and drive impactful projects in the tech industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>30+ Client Projects</h3>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node/Express.js</span>
+                        </div>
+                        <p>Includes eCommerce sites and CRM systems</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Facebook Marketplace Autolisting Bot</h3>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Selenium</span>
+                            <span>Django Admin</span>
+                        </div>
+                        <p>Multi-account automation with admin dashboard</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Instagram Comments Extractor</h3>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Selenium</span>
+                        </div>
+                        <p>Extracts Instagram post comments for research</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Google Maps Reviews Bot</h3>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Web Scraping</span>
+                        </div>
+                        <p>Automatically collects reviews from business listings</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-container">
-            <div class="technical-skills">
-                <h3>Technical Skills</h3>
-                <div class="skill-grid">
-                    <div class="skill-item"><i class="fab fa-react"></i>React.js</div>
-                    <div class="skill-item"><i class="fas fa-code"></i>Web Scraping</div>
-                    <div class="skill-item"><i class="fas fa-server"></i>IT Administration</div>
-                    <div class="skill-item"><i class="fas fa-search"></i>SEO</div>
-                    <div class="skill-item"><i class="fas fa-bullhorn"></i>Digital Marketing</div>
-                    <div class="skill-item"><i class="fas fa-laptop-code"></i>Freelancing</div>
-                </div>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-badge">HTML</div>
+                <div class="skill-badge">CSS</div>
+                <div class="skill-badge">JavaScript</div>
+                <div class="skill-badge">React.js</div>
+                <div class="skill-badge">Node/Express.js</div>
+                <div class="skill-badge">Python</div>
+                <div class="skill-badge">Selenium</div>
+                <div class="skill-badge">Web Scraping</div>
+                <div class="skill-badge">MongoDB</div>
+                <div class="skill-badge">Socket.io</div>
+                <div class="skill-badge">Meta Ads</div>
+                <div class="skill-badge">Digital Marketing</div>
             </div>
-            <div class="soft-skills">
-                <h3>Soft Skills</h3>
-                <div class="skill-grid">
-                    <div class="skill-item">Communication</div>
-                    <div class="skill-item">Flexibility</div>
-                    <div class="skill-item">Self-Management</div>
-                    <div class="skill-item">Creativity</div>
-                    <div class="skill-item">Problem-Solving</div>
-                    <div class="skill-item">Leadership</div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Automation Tool Developer-FB Marketplace Auto listing Bot</h3>
+                    <p class="timeline-subtitle">UK-based furniture brand</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>MERN Developer</h3>
+                    <p class="timeline-subtitle">Shafitech</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Intern-Web Developer</h3>
+                    <p class="timeline-subtitle">Disruptive AI Incubation Centre (NUST)</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section class="education" id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>BS Software Engineering</h3>
-                    <p>APCOMS (affiliated with UET Taxila), Rawalpindi</p>
-                    <span class="date">2020 - 2024</span>
-                </div>
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3>BS Software Engineering (PEC Registered)</h3>
+                <p>APCOMS, UET Taxila (2020–2024)</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Intermediate (Pre-Engineering)</h3>
-                    <p>APSACS Kallar Kahar, Chakwal</p>
-                    <span class="date">2018 - 2020</span>
-                </div>
+            <div class="education-item">
+                <h3>Intermediate (Pre-Engineering)</h3>
+                <p>APSACS Kallar Kahar, Chakwal (2018-2020)</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Matriculation</h3>
-                    <p>APSACS Kallar Kahar, Chakwal</p>
-                    <span class="date">2016 - 2018</span>
-                </div>
+            <div class="education-item">
+                <h3>Matriculation</h3>
+                <p>APSACS Kallar Kahar, Chakwal (2016-2018)</p>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-container">
-            <div class="experience-item">
-                <h3>Digital Marketer & Online Salesman</h3>
-                <p class="company">UK Furniture Company</p>
-                <p class="date">2021 - Present</p>
-                <ul>
-                    <li>Managing online sales and digital marketing strategies</li>
-                    <li>Implementing SEO optimization techniques</li>
-                    <li>Handling customer relations and sales</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Web Developer Intern</h3>
-                <p class="company">Disruptive AI Incubation Centre MCS NUST</p>
-                <p class="date">2023</p>
-                <ul>
-                    <li>Developed and maintained web applications</li>
-                    <li>Collaborated with cross-functional teams</li>
-                    <li>Implemented responsive design principles</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Digital Marketer & Front-end Developer</h3>
-                <p class="company">Shafitech Sargodha</p>
-                <p class="date">Remote Position</p>
-                <ul>
-                    <li>Created responsive web interfaces</li>
-                    <li>Implemented digital marketing strategies</li>
-                    <li>Optimized website performance</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-content">
-                    <h3>Facebook Marketplace Autolisting Software</h3>
-                    <div class="portfolio-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">Automation</span>
-                    </div>
-                    <p>Developed an automated solution for listing products on Facebook Marketplace, streamlining the product listing process and increasing efficiency for sellers. The software handles bulk product uploads, automates listing creation, and manages product information.</p>
-                    <div class="portfolio-features">
-                        <ul>
-                            <li>Automated product listing creation</li>
-                            <li>Bulk upload functionality</li>
-                            <li>Product information management</li>
-                            <li>Django-based admin interface</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-container">
+    <!-- Footer / Contact Section -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <p><a href="tel:+923324740149">+92 332 4740149</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <p>+923197456840</p>
+                    <p>+92-3324740149</p>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <p>malikmudassar896345@gmail.com</p>
                 </div>
             </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/engr-mudassar-ahmed-saeed-95666b365/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Mudassar Ahmed Saeed. All rights reserved.</p>
+        <div class="copyright">
+            <p>&copy; 2023 Engr. Mudassar Ahmed Saeed. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="http://wa.me/923197456840" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
